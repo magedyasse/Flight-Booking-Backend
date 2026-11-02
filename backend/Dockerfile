@@ -1,7 +1,8 @@
 # --- Stage 1: Build -----
 FROM python:3.12-slim
 
-# Install uv.
+# Install uv from PyPI so the build does not depend on GHCR authentication.
+# RUN pip install --no-cache-dir uv
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 COPY . /app
